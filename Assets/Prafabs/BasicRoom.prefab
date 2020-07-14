@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3267476126818749099}
   - component: {fileID: 6916647107537798279}
   - component: {fileID: 1689309655341760249}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3384156981271588543}
   - component: {fileID: 2693912552039019597}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1869,7 +1869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5223783578056328728}
   - component: {fileID: 4626865645090584649}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,7 +1970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5572088238731510684}
   - component: {fileID: 6819628174752439839}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door_down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4192108426840286579}
   - component: {fileID: 7593071977549628723}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2236,7 +2236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1653442278903360779}
   - component: {fileID: 8553587017007330417}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door_up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2320,7 +2320,7 @@ GameObject:
   - component: {fileID: 2048689324565195678}
   - component: {fileID: 4849412018577941399}
   - component: {fileID: 622726710726852949}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BasicRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

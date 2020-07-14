@@ -36,44 +36,44 @@ public class PlayerController : MonoBehaviour
         {
              transform.position = pos;
         }
-        else
+        else if (Timer.input == true)
         {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            pos = rb.position;
-            up = true;
-            left = false;
-            right = false;
-            down = false; 
-            transform.Translate(Vector3.up);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            pos = rb.position;
-            up = false;
-            left = false;
-            right = false;
-            down = true; 
-            transform.Translate(Vector3.down);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            pos = rb.position;
-            up = false;
-            left = true;
-            right = false;
-            down = false; 
-            transform.Translate(Vector3.left);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            pos = rb.position;            
-            up = false;
-            left = false;
-            right = true;
-            down = false; 
-            transform.Translate(Vector3.right);
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                pos = rb.position;
+                up = true;
+                left = false;
+                right = false;
+                down = false; 
+                transform.Translate(Vector3.up);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                pos = rb.position;
+                up = false;
+                left = false;
+                right = false;
+                down = true; 
+                transform.Translate(Vector3.down);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                pos = rb.position;
+                up = false;
+                left = true;
+                right = false;
+                down = false; 
+                transform.Translate(Vector3.left);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                pos = rb.position;            
+                up = false;
+                left = false;
+                right = true;
+                down = false; 
+                transform.Translate(Vector3.right);
+            }
         }
 
     }
@@ -82,12 +82,10 @@ public class PlayerController : MonoBehaviour
     public void Stop()
     {
         isStop = true;
-        Debug.Log("stop");
     }
 
     public void nStop()
     {
         isStop = false;
-        Debug.Log("nstop");
     }
 }

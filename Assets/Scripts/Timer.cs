@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
-using System.Timers;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public bool pointer;
-    public float interval;
+    public float timer = 0.6f;
+    float inputTime;
+    static public bool multipleInput;
+    static public bool input;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,42 +17,23 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        timer -= Time.deltaTime;
 
-    public void Awake() 
-    {
-        timer.Elapsed += new System.Timers.ElapsedEventHandler(theout);
-        timer.AutoReset = true;
-        InvokeRepeating("ChangePointer", 0, interval);
-        InvokeRepeating("Reset", 0, interval);  
-    }
-
-    public int n;
-
-    System.Timers.Timer timer =  new System.Timers.Timer(50);  
-    public void ChangePointer()
-    {
-        timer.Start();
-        if (Input.anyKey)
+        if (Input.anyKeyDown)
         {
-            timer.Close();
-            if (Input.anyKey)
+            input = false;
+            inputTime = timer;
+            if(inputTime <= 0.3f)
             {
-                Debug.Log("333");
+                input = true;
+                Debug.Log("successful");
             }
-        } 
-        Debug.Log("2333");
+        }
+        
 
-    }
-
-    public void theout(object source, System.Timers.ElapsedEventArgs e)
-    {
-        n++;
-    }
-
-    public void Reset() 
-    {
-        n = 0;
+        if (timer <= 0) 
+        { 
+            timer = 0.6f;
+        }
     }
 }
