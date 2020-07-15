@@ -10,10 +10,13 @@ public class RoomManager : MonoBehaviour
 
     [Header("房间信息")]
     public GameObject roomPrefab;
+    public GameObject[] enemyTiles;
+    public GameObject[] npcTiles;
     public int roomNumber;
     public Color startColor, endColor;
     private GameObject endRoom;
     private GameObject bossRoom;
+    List <Vector3> gridPositions = new List<Vector3>();
 
     [Header("位置控制")]
     public Transform managerPoint;
@@ -22,14 +25,21 @@ public class RoomManager : MonoBehaviour
     public LayerMask roomLayer;
     public List<Room> rooms = new List <Room>();
     public Walltype walltype;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        InitialiseList();
+        //int enemyCount = (int)Mathf.Log(8, 2f);
+        LayoutObjectAtRandom(npcTiles, 1, 1);
+
         for (int i = 0; i < roomNumber; i++)
         {
             rooms.Add(Instantiate(roomPrefab, managerPoint.position, Quaternion.identity).GetComponent<Room>());
             //在point上生成示例房间
+            //LayoutObjectAtRandom(enemyTiles, 2, 3);
+
             ChangePointPos();
             //改变point位置
         }
@@ -156,5 +166,39 @@ public class RoomManager : MonoBehaviour
                           doubleUL, doubleLR, doubleLD, doubleUR, doubleUD, doubleRD,
                           tripleULR, tripleULD, tripleURD, tripleLRD,
                           fourDoors;
+    }
+
+
+    void InitialiseList()
+    {
+        gridPositions.Clear();
+        for (int x = 1; x < 15; x++)
+        {
+            for(int y = 1; y < 9; y++)
+            {
+                gridPositions.Add(new Vector3(x - 7.5f, y - 3.5f, 0f));
+            }
+        }
+    }
+
+
+    Vector3 RandomPosition()
+    {
+        int RandomIndex = Random.Range (0, gridPositions.Count);
+        Vector3 randomPosition = gridPositions [RandomIndex];
+        gridPositions.RemoveAt (RandomIndex);
+        return randomPosition;
+    }
+
+
+    void LayoutObjectAtRandom (GameObject[] tileArray, int minimum, int maximum)
+    {
+        int objectCount = Random.Range(minimum, maximum + 1);
+        for (int i = 0; i < objectCount; i++)
+        {
+            Vector3 randomPosition = RandomPosition();
+            GameObject tileChoice = tileArray [Random.Range(0, tileArray.Length)];
+            Instantiate (tileChoice, randomPosition + managerPoint.position, Quaternion.identity);
+        }
     }
 }
