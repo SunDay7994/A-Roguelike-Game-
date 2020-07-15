@@ -1805,8 +1805,8 @@ Transform:
   m_LocalPosition: {x: -10, y: 1, z: 0}
   m_LocalScale: {x: 0.01, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3528098313376874094}
-  m_RootOrder: 3
+  m_Father: {fileID: 2901895303617106428}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2693912552039019597
 SpriteRenderer:
@@ -1930,9 +1930,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3384156981271588543}
   m_Father: {fileID: 3528098313376874094}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4108913541368328684
 BoxCollider2D:
@@ -2072,7 +2073,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3528098313376874094}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6492743792503698835
 Animator:
@@ -2173,7 +2174,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3528098313376874094}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7593071977549628723
 SpriteRenderer:
@@ -2341,7 +2342,6 @@ Transform:
   - {fileID: 5223783578056328728}
   - {fileID: 1653442278903360779}
   - {fileID: 5572088238731510684}
-  - {fileID: 3384156981271588543}
   - {fileID: 4192108426840286579}
   - {fileID: 2901895303617106428}
   - {fileID: 6528582049340065225}

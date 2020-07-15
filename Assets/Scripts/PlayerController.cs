@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public LayerMask blockingLayer;
+    Rigidbody2D rb2D;
+    BoxCollider2D boxCollider2D;
     Animator anim;
     Vector2 move; 
     Vector3 pos;
     public bool isStop;
-    public bool up, down, left, right;
     public static PlayerController instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -27,59 +29,76 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        move.x = Input.GetAxisRaw("Horizontal");
-        move.y = Input.GetAxisRaw("Vertical");
-
-        Vector3 dir = new Vector3(move.x, move.y, 0);
-
-        if(isStop)
-        {
-             transform.position = pos;
-        }
-        else if (Timer.input == true)
+        if (Timer.input == true)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                pos = rb.position;
-                up = true;
-                left = false;
-                right = false;
-                down = false; 
-                transform.Translate(Vector3.up);
+                RaycastHit2D hit;
+
+                Vector3 start = transform.position;
+                Vector3 end = start + Vector3.up;
+
+                boxCollider2D.enabled = false;
+                hit = Physics2D.Linecast (start, end, blockingLayer);
+                boxCollider2D.enabled = true;
+
+                if (hit.transform == null)
+                {
+                    transform.Translate(Vector3.up);
+                }
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                pos = rb.position;
-                up = false;
-                left = false;
-                right = false;
-                down = true; 
-                transform.Translate(Vector3.down);
+                RaycastHit2D hit;
+
+                Vector3 start = transform.position;
+                Vector3 end = start + Vector3.down;
+
+                boxCollider2D.enabled = false;
+                hit = Physics2D.Linecast (start, end, blockingLayer);
+                boxCollider2D.enabled = true;
+
+                if (hit.transform == null)
+                {
+                    transform.Translate(Vector3.down);
+                }
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                pos = rb.position;
-                up = false;
-                left = true;
-                right = false;
-                down = false; 
-                transform.Translate(Vector3.left);
+                RaycastHit2D hit;
+
+                Vector3 start = transform.position;
+                Vector3 end = start + Vector3.left;
+
+                boxCollider2D.enabled = false;
+                hit = Physics2D.Linecast (start, end, blockingLayer);
+                boxCollider2D.enabled = true;
+
+                if (hit.transform == null)
+                {
+                    transform.Translate(Vector3.left);
+                }
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                pos = rb.position;            
-                up = false;
-                left = false;
-                right = true;
-                down = false; 
-                transform.Translate(Vector3.right);
+
+                Vector3 start = transform.position;
+                Vector3 end = new Vector3(start.x + 1, start.y, start.z);
+
+                boxCollider2D.enabled = false;
+                bool hit = Physics2D.Linecast (start, end, blockingLayer);
+                boxCollider2D.enabled = true;
+
+                if (!hit)
+                {
+                    transform.Translate(Vector3.right);
+                }
             }
         }
 
     }
 
-
-    public void Stop()
+    /* public void Stop()
     {
         isStop = true;
     }
@@ -87,5 +106,7 @@ public class PlayerController : MonoBehaviour
     public void nStop()
     {
         isStop = false;
-    }
+    } */
+
+    
 }
