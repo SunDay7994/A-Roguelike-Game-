@@ -38,15 +38,15 @@ public class RoomManager : MonoBehaviour
         {
             rooms.Add(Instantiate(roomPrefab, managerPoint.position, Quaternion.identity).GetComponent<Room>());
             //在point上生成示例房间
-            //LayoutObjectAtRandom(enemyTiles, 2, 3);
-
             ChangePointPos();
             //改变point位置
+            LayoutObjectAtRandom(enemyTiles, 2, 3);
         }
 
         rooms[0].GetComponent<SpriteRenderer>().color = startColor;
 
         endRoom = rooms[0].gameObject;
+        
         foreach (var room in rooms)
         {
             if (room.transform.position.sqrMagnitude > endRoom.transform.position.sqrMagnitude)

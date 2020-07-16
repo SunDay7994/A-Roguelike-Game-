@@ -8,10 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2D;
     BoxCollider2D boxCollider2D;
     Animator anim;
-    Vector2 move; 
-    Vector3 pos;
-    public bool isStop;
-    public static PlayerController instance;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +18,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    private void Awake() 
-    {
-        instance = this;
-    }
 
+    // Update is called once per frame
     void Update()
     {
         if (Timer.input == true)
