@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8301624816664035200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8301624816664035203}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8301624816664035203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301624816664035200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8301624816717558488}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8301624816717558494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8301624816717558488}
+  - component: {fileID: 1737480531276055069}
+  - component: {fileID: 8301624816717558489}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8301624816717558488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301624816717558494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8301624816664035203}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1737480531276055069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301624816717558494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46eacda0dca63c2459188424dcd7b17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8301624816717558489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301624816717558494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5675ff4b8d90a6e428f109caefbd4be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  roomPrefab: {fileID: 8798194876751906981, guid: fedd54a2ddbf774498fecd4867ecd7d6,
+    type: 3}
+  enemyTiles:
+  - {fileID: 4176150545442699638, guid: 7dacb0dcfe8bbb2478c218e069a1b81f, type: 3}
+  npcTiles:
+  - {fileID: 4176150545442699638, guid: f6ae82cd789a04c4698fb215abf4ccae, type: 3}
+  roomNumber: 10
+  startColor: {r: 1, g: 0.29209286, b: 0, a: 1}
+  endColor: {r: 0, g: 0.42108583, b: 1, a: 1}
+  managerPoint: {fileID: 8301624816664035203}
+  xOffset: 21
+  yOffset: 15
+  roomLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  rooms: []
+  walltype:
+    singleLeft: {fileID: 3454676262982891117, guid: 73471aab31e3f7d4bb2efab0b7f0edcc,
+      type: 3}
+    singleRight: {fileID: 3454676262982891117, guid: 41feebe5355daf8429d8e816d1cb99cb,
+      type: 3}
+    singleUp: {fileID: 3454676262982891117, guid: 0a43f40aa9638ad4aa71f3a00cf6589c,
+      type: 3}
+    singleDown: {fileID: 3454676262982891117, guid: c2229746460643c41b7c9737758e5553,
+      type: 3}
+    doubleUL: {fileID: 3454676262982891117, guid: 1bb009d2b8463ce48acf5f48544175bd,
+      type: 3}
+    doubleLR: {fileID: 3454676262982891117, guid: b35ea4f407f56544981293ceb90cce3b,
+      type: 3}
+    doubleLD: {fileID: 3454676262982891117, guid: da68bca064c222347ba6952f997beeae,
+      type: 3}
+    doubleUR: {fileID: 3454676262982891117, guid: f2433be0b5aa53c4d81a69fbc04a8177,
+      type: 3}
+    doubleUD: {fileID: 3454676262982891117, guid: d32b759eeb3420448b228375062c4c68,
+      type: 3}
+    doubleRD: {fileID: 3454676262982891117, guid: 0aeb5827d6764454898e8b716d7d8582,
+      type: 3}
+    tripleULR: {fileID: 3454676262982891117, guid: 9d29991dc90d1e9498c09c73f3aa2b1e,
+      type: 3}
+    tripleULD: {fileID: 3454676262982891117, guid: d519a53d066c43943ab1465c60488197,
+      type: 3}
+    tripleURD: {fileID: 3454676262982891117, guid: 03d373fff0f26e74aa41b18f0bc3eb98,
+      type: 3}
+    tripleLRD: {fileID: 3454676262982891117, guid: 7ad05c55be385084cac5c3b42ad295ed,
+      type: 3}
+    fourDoors: {fileID: 3454676262982891117, guid: afec6a79c17fe7248a9d70e9997193e2,
+      type: 3}

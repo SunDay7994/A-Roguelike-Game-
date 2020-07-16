@@ -25,13 +25,11 @@ public class RoomManager : MonoBehaviour
     public LayerMask roomLayer;
     public List<Room> rooms = new List <Room>();
     public Walltype walltype;
-    
 
-    // Start is called before the first frame update
-    void Start()
+     public void SetupScene(int level)
     {
         InitialiseList();
-        //int enemyCount = (int)Mathf.Log(8, 2f);
+        int enemyCount = (int)Mathf.Log(8, 2f);
         LayoutObjectAtRandom(npcTiles, 1, 1);
 
         for (int i = 0; i < roomNumber; i++)
@@ -40,13 +38,13 @@ public class RoomManager : MonoBehaviour
             //在point上生成示例房间
             ChangePointPos();
             //改变point位置
-            LayoutObjectAtRandom(enemyTiles, 2, 3);
+            LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
         }
 
         rooms[0].GetComponent<SpriteRenderer>().color = startColor;
 
         endRoom = rooms[0].gameObject;
-        
+
         foreach (var room in rooms)
         {
             if (room.transform.position.sqrMagnitude > endRoom.transform.position.sqrMagnitude)

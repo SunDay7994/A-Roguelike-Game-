@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2D;
     BoxCollider2D boxCollider2D;
     Animator anim;
+    int playerHP;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        playerHP = GameController.instance.playerHP;
     }
 
 
@@ -91,15 +93,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    /* public void Stop()
+    public void LoseHP(int loss)
     {
-        isStop = true;
+        
+
     }
-
-    public void nStop()
-    {
-        isStop = false;
-    } */
-
-    
 }
