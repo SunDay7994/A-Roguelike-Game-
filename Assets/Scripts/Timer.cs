@@ -9,9 +9,10 @@ public class Timer : MonoBehaviour
     static public bool multipleInput;
     static public bool input;
     // Start is called before the first frame update
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +31,6 @@ public class Timer : MonoBehaviour
             }
         }
         
-
         if (timer <= 0) 
         { 
             timer = 0.6f;

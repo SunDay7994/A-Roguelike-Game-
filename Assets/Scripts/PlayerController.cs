@@ -7,9 +7,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask blockingLayer;
     Rigidbody2D rb2D;
     BoxCollider2D boxCollider2D;
-    Animator anim;
-    int playerHP;
-
+    static Animator anim;
+    static int playerHP;
 
     // Start is called before the first frame update
     void Start()
@@ -28,74 +27,94 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                RaycastHit2D hit;
-
-                Vector3 start = transform.position;
-                Vector3 end = start + Vector3.up;
-
-                boxCollider2D.enabled = false;
-                hit = Physics2D.Linecast (start, end, blockingLayer);
-                boxCollider2D.enabled = true;
-
-                if (hit.transform == null)
-                {
-                    transform.Translate(Vector3.up);
-                }
+                Move(Vector3.up);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                RaycastHit2D hit;
-
-                Vector3 start = transform.position;
-                Vector3 end = start + Vector3.down;
-
-                boxCollider2D.enabled = false;
-                hit = Physics2D.Linecast (start, end, blockingLayer);
-                boxCollider2D.enabled = true;
-
-                if (hit.transform == null)
-                {
-                    transform.Translate(Vector3.down);
-                }
+                Move(Vector3.down);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                RaycastHit2D hit;
-
-                Vector3 start = transform.position;
-                Vector3 end = start + Vector3.left;
-
-                boxCollider2D.enabled = false;
-                hit = Physics2D.Linecast (start, end, blockingLayer);
-                boxCollider2D.enabled = true;
-
-                if (hit.transform == null)
-                {
-                    transform.Translate(Vector3.left);
-                }
+                Move(Vector3.left);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-
-                Vector3 start = transform.position;
-                Vector3 end = new Vector3(start.x + 1, start.y, start.z);
-
-                boxCollider2D.enabled = false;
-                bool hit = Physics2D.Linecast (start, end, blockingLayer);
-                boxCollider2D.enabled = true;
-
-                if (!hit)
-                {
-                    transform.Translate(Vector3.right);
-                }
+                Move(Vector3.right);
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                PlayerHit();
             }
         }
 
     }
 
-    public void LoseHP(int loss)
+    private void Move(Vector3 dir)
     {
-        
+        RaycastHit2D hit;
 
+        Vector3 start = transform.position;
+        Vector3 end = start + dir;
+
+        boxCollider2D.enabled = false;
+        hit = Physics2D.Linecast (start, end, blockingLayer);
+        boxCollider2D.enabled = true;
+
+        if (hit.transform == null)
+        {
+            transform.Translate(dir);
+        }
+    }
+
+    public static void LoseHP(int loss)
+    {
+        anim.SetTrigger("playerChop");
+        playerHP -= loss;
+        if (playerHP <= 0)
+        {
+            GameController.instance.GameOver();
+        }
+    }
+
+    public void PlayerHit()
+    {
+        anim.SetTrigger("playerHit");
+        Select();
+    }
+
+    /* private void OnTriggerStay2D(Collider2D other) 
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (Timer.input == true)
+            {
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    PlayerHit();
+                    other.GetComponent<EnemyController>().enemyHP -= 1;
+                }
+            }
+        }
+    } */
+
+    public void Select()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> tempList = new List<GameObject>();
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            float diss = Vector3.Distance(transform.position, enemies[i].transform.position);
+            //float angle = Vector3.Angle(transform.position, enemies[i].transform.position - transform.position);
+            if (diss < 2)
+            {
+                tempList.Add(enemies[i]);
+            }
+        } 
+
+        foreach (var objects in tempList)
+        {
+            objects.GetComponent<EnemyController>().LoseHP(1);
+        }
     }
 }

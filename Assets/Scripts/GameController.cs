@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance = null;
-    public int playerHP = 5;
+    public int playerHP = 10;
     RoomManager roomManager;
     int level = 4;
 
@@ -29,5 +29,10 @@ public class GameController : MonoBehaviour
     void InitGame()
     {
         roomManager.SetupScene(level);
+    }
+
+    public void GameOver()
+    {
+        enabled = false;
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public static CameraController instance;
-    
     public float speed;
     // Start is called before the first frame update
     public Transform target;
