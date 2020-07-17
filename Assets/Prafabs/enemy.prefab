@@ -203,7 +203,7 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 512
-  enemyHP: 0
+  enemyHP: 2
   direction: 0
   timer: 0.6
 --- !u!58 &2178188864665346554

@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        enemyHP = 2;
     }
 
     // Update is called once per frame

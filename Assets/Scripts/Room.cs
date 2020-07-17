@@ -37,4 +37,5 @@ public class Room : MonoBehaviour
            CameraController.instance.ChangeTarget(transform);
         }
     }
+
 }

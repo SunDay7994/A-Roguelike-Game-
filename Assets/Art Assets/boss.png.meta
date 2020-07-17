@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 059db5262e9a6484c8e381d91a9c25e2
+guid: d02a84bcb10b38d4cbb38d4a2e7da050
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5812127159173817068
-    second: Door_2_0
+      213: -2424553518018739129
+    second: boss_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_2_0
+      name: boss_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
-        width: 32
-        height: 35
+        x: 30
+        y: 15
+        width: 47
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d5b08842d275fa0800000000000000
-      internalID: -5812127159173817068
+      spriteID: 744c193db614a5ed0800000000000000
+      internalID: -2424553518018739129
       vertices: []
       indices: 
       edges: []

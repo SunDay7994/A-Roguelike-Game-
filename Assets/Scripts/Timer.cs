@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
         {
             input = false;
             inputTime = timer;
-            if(inputTime <= 0.3f)
+            if(inputTime <= 0.45f)
             {
                 input = true;
                 Debug.Log("successful");

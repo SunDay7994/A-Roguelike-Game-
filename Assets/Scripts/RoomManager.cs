@@ -12,8 +12,12 @@ public class RoomManager : MonoBehaviour
     public GameObject roomPrefab;
     public GameObject[] enemyTiles;
     public GameObject[] npcTiles;
+    public GameObject[] furnitureTiles;
+    public GameObject[] foodTiles;
+    public GameObject[] bossTiles;
+    public GameObject[] exitTiles;
+    public GameObject[] keyTiles;
     public int roomNumber;
-    public Color startColor, endColor;
     private GameObject endRoom;
     private GameObject bossRoom;
     List <Vector3> gridPositions = new List<Vector3>();
@@ -28,8 +32,11 @@ public class RoomManager : MonoBehaviour
 
      public void SetupScene(int level)
     {
+        rooms.Clear();
+        managerPoint.position = new Vector3(0, 0, 0);
+
         InitialiseList();
-        int enemyCount = (int)Mathf.Log(8, 2f);
+        int enemyCount = (int)Mathf.Log(level, 2f);
         LayoutObjectAtRandom(npcTiles, 1, 1);
 
         for (int i = 0; i < roomNumber; i++)
@@ -38,10 +45,11 @@ public class RoomManager : MonoBehaviour
             //在point上生成示例房间
             ChangePointPos();
             //改变point位置
-            LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+            LayoutObjectAtRandom(enemyTiles, enemyCount + 2, enemyCount + 3);
+            LayoutObjectAtRandom(foodTiles, 1, 1);
+            LayoutObjectAtRandom(furnitureTiles, 5, 8);
+            LayoutObjectAtRandom(keyTiles, 0, 1);
         }
-
-        rooms[0].GetComponent<SpriteRenderer>().color = startColor;
 
         endRoom = rooms[0].gameObject;
 
@@ -58,8 +66,10 @@ public class RoomManager : MonoBehaviour
         ChangePointPos();
         rooms.Add(Instantiate(roomPrefab, managerPoint.position, Quaternion.identity).GetComponent<Room>());
         bossRoom = rooms[roomNumber].gameObject;
-        bossRoom.GetComponent<SpriteRenderer>().color = endColor;
         SetupRoom(endRoom.GetComponent<Room>(), endRoom.GetComponent<Room>().transform.position);
+        LayoutObjectAtRandom(bossTiles, 1, 1);
+        LayoutObjectAtRandom(exitTiles, 1, 1);
+
         //在最远房间相邻处生成一个boss房间
 
          foreach (var room in rooms)
@@ -67,7 +77,6 @@ public class RoomManager : MonoBehaviour
              SetupRoom(room, room.transform.position);
          }
          //生成门
-
     }
 
     // Update is called once per frame
@@ -170,11 +179,11 @@ public class RoomManager : MonoBehaviour
     void InitialiseList()
     {
         gridPositions.Clear();
-        for (int x = 1; x < 15; x++)
+        for (int x = 1; x < 17; x++)
         {
             for(int y = 1; y < 9; y++)
             {
-                gridPositions.Add(new Vector3(x - 7.5f, y - 3.5f, 0f));
+                gridPositions.Add(new Vector3(x, y, 0f));
             }
         }
     }
@@ -196,7 +205,7 @@ public class RoomManager : MonoBehaviour
         {
             Vector3 randomPosition = RandomPosition();
             GameObject tileChoice = tileArray [Random.Range(0, tileArray.Length)];
-            Instantiate (tileChoice, randomPosition + managerPoint.position, Quaternion.identity);
+            Instantiate (tileChoice, randomPosition + managerPoint.position + new Vector3(-8.5f, -3.5f, 0f), Quaternion.identity);
         }
     }
 }

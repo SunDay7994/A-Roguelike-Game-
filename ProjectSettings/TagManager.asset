@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Food
+  - Exit
+  - Door
+  - Undefined
+  - Boss
+  - Key
   layers:
   - Default
   - TransparentFX

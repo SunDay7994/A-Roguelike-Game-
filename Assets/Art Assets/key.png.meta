@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 059db5262e9a6484c8e381d91a9c25e2
+guid: b614c925c2079ef468799312835030d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5812127159173817068
-    second: Door_2_0
+      213: 1095141833252711340
+    second: key_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_2_0
+      name: key_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 3
-        width: 32
-        height: 35
+        y: 15
+        width: 9
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d5b08842d275fa0800000000000000
-      internalID: -5812127159173817068
+      spriteID: caba2bde1b9b23f00800000000000000
+      internalID: 1095141833252711340
       vertices: []
       indices: 
       edges: []

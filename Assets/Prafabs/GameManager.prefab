@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46eacda0dca63c2459188424dcd7b17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHP: 10
+  levelStartDelay: 2
 --- !u!114 &8301624816717558489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,9 +96,18 @@ MonoBehaviour:
   - {fileID: 4176150545442699638, guid: 7dacb0dcfe8bbb2478c218e069a1b81f, type: 3}
   npcTiles:
   - {fileID: 4176150545442699638, guid: f6ae82cd789a04c4698fb215abf4ccae, type: 3}
+  furnitureTiles:
+  - {fileID: 954889522882738502, guid: 476c91ec55d1eb64bb85d9162fa1e835, type: 3}
+  - {fileID: 9175161971624032749, guid: 0dc56f501bc8d5d4db8196ebc4f4b7fa, type: 3}
+  foodTiles:
+  - {fileID: 7491295797488698214, guid: 3eeb4d92f8381f341975287414414db6, type: 3}
+  bossTiles:
+  - {fileID: 4176150545442699638, guid: efae7267e11552e4ebe5128269096925, type: 3}
+  exitTiles:
+  - {fileID: 7491295797488698214, guid: 4cc8c752403d13849a3df97b1e438e27, type: 3}
+  keyTiles:
+  - {fileID: 7491295797488698214, guid: 7a9d34fd3a6d85b4d93937d9bc34d0e3, type: 3}
   roomNumber: 10
-  startColor: {r: 1, g: 0.29209286, b: 0, a: 1}
-  endColor: {r: 0, g: 0.42108583, b: 1, a: 1}
   managerPoint: {fileID: 8301624816664035203}
   xOffset: 21
   yOffset: 15

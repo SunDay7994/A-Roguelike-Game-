@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 059db5262e9a6484c8e381d91a9c25e2
+guid: 54454f4f785ff6f46b90374b5994eb84
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5812127159173817068
-    second: Door_2_0
+      213: -1642859493879143628
+    second: furniture_0
+  - first:
+      213: 2693470749061965190
+    second: furniture_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,22 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_2_0
+      name: furniture_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
+        x: 384
+        y: 416
         width: 32
-        height: 35
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d5b08842d275fa0800000000000000
-      internalID: -5812127159173817068
+      spriteID: 433a47b9ef36339e0800000000000000
+      internalID: -1642859493879143628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 989
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6856eba2061216520800000000000000
+      internalID: 2693470749061965190
       vertices: []
       indices: 
       edges: []
